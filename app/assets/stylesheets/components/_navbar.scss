@@ -52,3 +52,15 @@
     background-color: $coolgrey600;
   }
 }
+
+@media (max-width: 576px) { /* Targeting small screens */
+  .navbar-search-btn-small {
+    padding: 0.25rem 0.5rem; /* Smaller padding */
+    font-size: 0.875rem; /* Smaller font size */
+  }
+  /* Optionally, adjust the search input field size as well */
+  .navbar-search-small {
+    height: calc(1.5em + 0.5rem + 2px); /* Smaller height */
+    padding: 0.25rem 0.5rem; /* Smaller padding */
+  }
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title><%= meta_title %></title>
+    <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
     <!-- Facebook Open Graph data -->  <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="website" />
@@ -15,15 +15,20 @@
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag %>
+    <style>
+      @media (min-width: 912px) and (max-width: 991.98px) {
+        .col-md-12 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
   </head>
-
   <body data-controller="search-global" >
     <div class="page-container">
       <div class="navbar-container"><%= render "shared/navbar" %></div>

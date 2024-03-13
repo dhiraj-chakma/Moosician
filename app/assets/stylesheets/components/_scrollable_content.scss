@@ -1,0 +1,5 @@
+/* Assuming .scrollable-column is your form's container */
+.scrollable-column {
+  max-height: calc(100vh - 150px); /* Adjust based on your header/footer */
+  overflow-y: auto;
+}

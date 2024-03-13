@@ -1,9 +1,8 @@
 <% chatroom = message.chatroom %>
 <% user_1 = User.find(chatroom.user_1) %>
 <% user_2 = User.find(chatroom.user_2) %>
-
 <%= link_to chatroom_path(chatroom), data: { action: "click->chat-details#show:prevent" } do %>
-  <div class="message-card col-3 col-m-3 col-xs-16">
+  <div class="message-card col-3 col-md-12 col-xs-16">
     <div class="d-flex p-4 w-100 mb-3">
       <div class="d-flex align-items-center">
         <%= cl_image_tag(user_1.photo.key) unless user_1 == current_user %>

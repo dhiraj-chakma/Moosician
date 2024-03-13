@@ -1,42 +1,42 @@
 <nav class="navbar navbar-lewagon" >
   <div class="container-fluid">
-  <div class="row w-100">
-    <div class="col-3 d-flex justify-content-start align-items-center">
-      <% if user_signed_in? %>
-        <div class="dropdown">
-          <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-bars fa-2xl"></i></button>
-          <ul class="dropdown-menu navbar-dropdown-menu">
-            <%= link_to "Feed", root_path, class: "dropdown-item" %>
-            <% if current_user.profile %>
-              <%= link_to "My profile", profile_path(current_user.profile.id), class: "dropdown-item" %>
-            <% end %>
-            <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-          </ul>
-        </div>
+    <div class="row w-100">
+      <div class="col-4 col-lg-3 col-md-2 d-flex justify-content-start align-items-center">
+        <% if user_signed_in? %>
+          <div class="dropdown">
+            <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-bars fa-2xl"></i></button>
+            <ul class="dropdown-menu navbar-dropdown-menu">
+              <%= link_to "Feed", root_path, class: "dropdown-item" %>
+              <% if current_user.profile %>
+                <%= link_to "My profile", profile_path(current_user.profile.id), class: "dropdown-item" %>
+              <% end %>
+              <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </ul>
+          </div>
         <% else %>
           <%= link_to "Login", new_user_session_path, class: "navbar-dropdown-btn" %>
         <% end %>
-    </div>
-      <div class="col-6 d-flex justify-content-center align-items-center">
+      </div>
+      <div class="col-4 col-lg-6 col-md-4 d-flex justify-content-center align-items-center">
         <%= link_to root_path do %>
-        <h1 style="font-family: 'Bebas Neue', sans-serif;" class="m-0">Moosician</h1>
+          <h1 style="font-family: 'Bebas Neue', sans-serif;" class="m-0">Moosician</h1>
         <% end %>
       </div>
-      <div class="col-3 d-flex justify-content-end align-items-center" >
-         <%= form_with url: posts_path, method: :get, html: {class: "d-flex w-100", data: {search_global_target: "form"}} do %>
-            <%= text_field_tag :query,
+      <div class="col-4 col-md-6 col-lg-3 d-flex justify-content-end align-items-center" >
+        <%= form_with url: posts_path, method: :get, html: {class: "d-flex w-100", data: {search_global_target: "form"}} do %>
+          <%= text_field_tag :query,
                   params[:query],
                   data: {
                     search_global_target: "input",
                     action: "keyup->search-global#update"},
-                  class: "form-control navbar-search",
+                  class: "form-control navbar-search navbar-search-small",
                   placeholder: "Search"
               %>
-            <%= button_tag type: "submit", class: "btn navbar-search-btn" do %>
-              <i class="fa-solid fa-magnifying-glass"></i>
-            <% end %>
+          <%= button_tag type: "submit", class: "btn navbar-search-btn navbar-search-btn-small" do %>
+            <i class="fa-solid fa-magnifying-glass"></i>
           <% end %>
+        <% end %>
       </div>
     </div>
   </div>

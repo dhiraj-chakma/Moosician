@@ -1,25 +1,27 @@
 <div class="py-3">
   <div class="profile-card">
-    <div class="d-flex p-3">
-      <%= cl_image_tag user.photo.key, class: "avatar-large" %>
-      <div class="d-flex flex-column w-100 ms-3 justify-content-between">
-        <div class="flex-column flex-grow-1 justify-content-between">
+    <!-- Use 'flex-md-row' to be horizontal on medium devices and up, 'flex-column' for smaller devices -->
+    <div class="d-flex flex-column flex-md-row p-3">
+      <%= cl_image_tag user.photo.key, class: "avatar-large mb-3 mb-md-0" %> <!-- 'mb-3 mb-md-0': margin-bottom on small, none on md+ -->
+      <div class="d-flex flex-column w-100 ms-md-3 justify-content-between">
+        <div>
           <div class="d-flex align-items-center mb-3">
             <h3 class="name-username"><%= user.first_name %> <%= user.last_name %></h3>
             <p class="secondary-text ps-1 name-username">@<%= user.username %></p>
           </div>
           <p><%= user.bio %></p>
-          <p>Joined on <%= user.created_at.strftime("#{current_user.created_at.day.ordinalize} of %b, %Y") %></p>
+          <p>Joined on <%= user.created_at.strftime("#{user.created_at.day.ordinalize} of %b, %Y") %></p>
+ <!-- Fix: changed 'current_user' to 'user' -->
         </div>
-        <div class="d-flex justify-content-end">
-        <% chatroom = Chatroom.find_by(user_1: user, user_2: current_user) || chatroom = Chatroom.find_by(user_2: user, user_1: current_user)   %>
+        <div class="d-flex justify-content-md-end"> <!-- 'justify-content-md-end': justify on md+ -->
+          <% chatroom = Chatroom.find_by(user_1: user, user_2: current_user) || Chatroom.find_by(user_2: user, user_1: current_user) %>
           <% if chatroom.nil? %>
-            <%= button_to chatrooms_path(receiver: user), class: "remove-btn-class" do %>
-              <i class=" icon fa-2xl fa-regular fa-envelope"></i>
+            <%= button_to chatrooms_path(receiver: user), method: :post, class: "remove-btn-class" do %>
+              <i class="icon fa-2xl fa-regular fa-envelope"></i>
             <% end %>
           <% else %>
             <%= link_to chatroom_path(chatroom), class: "remove-btn-class" do %>
-              <i class=" icon fa-2xl fa-regular fa-envelope"></i>
+              <i class="icon fa-2xl fa-regular fa-envelope"></i>
             <% end %>
           <% end %>
         </div>

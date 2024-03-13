@@ -10,9 +10,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/scrollable_content";
 @import "components/footer";
 
 a {
   text-decoration: none;
   color: $neutralgrey200;
 }
+

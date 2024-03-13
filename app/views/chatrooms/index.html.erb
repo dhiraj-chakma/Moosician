@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row" data-controller="chat-details">
     <div class="col-xl-3 mt-3"> <%= render "shared/profile_vertical" %> </div>
-
-    <div class="col-xl-3 mt-3">
+    <div class="col-xl-6 mt-3">
       <% @last_messages.each do |message|  %>
         <% unless message.nil?  %>
           <div class="container">
@@ -11,7 +10,6 @@
         <% end %>
       <% end  %>
     </div>
-
-    <div class="col-xl-6 mb-3" data-chat-details-target="container"></div>
+    <div class="col-xl-3 mb-3" data-chat-details-target="container"></div>
   </div>
 </div>
