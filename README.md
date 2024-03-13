@@ -18,7 +18,7 @@ To get started with Music Connect, follow these steps:
 1. **Clone the Repository**
 
    ```
-   [git clone https://github.com/dhiraj-chakma/music-connect.git](https://github.com/dhiraj-chakma/Moosician.git)
+   [git clone https://github.com/dhiraj-chakma/Moosician.git]
    ```
 
 2. **Install Dependencies**
@@ -26,7 +26,7 @@ To get started with Music Connect, follow these steps:
    Navigate to the project directory and install the required dependencies:
 
    ```
-   cd music-connect
+   cd Moosician
    npm install
    ```
 
