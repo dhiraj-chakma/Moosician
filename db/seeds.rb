@@ -12,26 +12,41 @@ users1 = User.new(email: "kanyecrazy2023@gmail.com", password: "12345678",passwo
 bio:" - Our focus needs to be less about what our legacy is going to be or how we can control each other, but more about how we can gift each other. My mother Donda always told me KANYE make sure you always All Gas No Breaks - Yes I am better than jay-z  - Rapper/Beats",location: "Chicago,Illinois",admin:true,first_name:"Kanye",last_name:"East")
 users1.photo.attach(io: URI.open("https://imageio.forbes.com/specials-images/imageserve/5ed00f17d4a99d0006d2e738/0x0.jpg?format=jpg&crop=4666,4663,x154,y651,safe&height=416&width=416&fit=bounds"), filename: "nes1.png", content_type: "image/png")
 users1.save!
+unless users1.save
+  puts users1.errors.full_messages
+end
 
 users2 = User.new(email: "yungthugga022@gmail.com", password:"12345678", password_confirmation:"12345678",username:"Youngthug_01" ,
 bio:" We're born alone, we live alone, we die alone. Only through our love and music can we create the illusion for the moment that we're not alone. - Rapper", location: "Thug's World", first_name:"Young",last_name:"Thug")
 users2.photo.attach(io: URI.open("https://img.buzzfeed.com/buzzfeed-static/complex/images/uwr3uur8lmnj79v40c8j/young-thug-bumbershoot-suzi-pratt.jpg?output-format=jpg&output-quality=auto"), filename: "nes2.png", content_type: "image/png")
 users2.save!
+unless users2.save
+  puts users1.errors.full_messages
+end
 
 users3 = User.new(email: "1future@gmail.com", password:"12345678",password_confirmation:"12345678",username:"PLUTOHENDRIX_" ,
 bio:"I don't write hits for myself, or for other artists, or to just be writing it. I write it because I was born to do this. I was given this gift and I'm making the most of my opportunity. - Rapper " ,location: " Atlanta, Georgia",first_name:"FUTURE",last_name:"Hendrix")
 users3.photo.attach(io: URI.open("https://www.nme.com/wp-content/uploads/2020/05/prince-williams-future-getty-2020.jpg"), filename: "nes3.png", content_type: "image/png")
 users3.save!
+unless users3.save
+  puts users1.errors.full_messages
+end
 
 users4 = User.new(email: "TayKeithrosssata@hotmail.com", password:"12345678",password_confirmation:"12345678", username:"Tay_Keith" ,
 bio:" - Get it done. Ain’t no excuses - Producer", location: "Memphis, TN",first_name:"Tay",last_name:"Keith")
 users4.photo.attach(io: URI.open("https://www.billboard.com/wp-content/uploads/2021/02/Tay-Keith-2019-billboard-1548-1613665062.jpg"), filename: "nes4.png", content_type: "image/png")
 users4.save!
+unless users4.save
+  puts users1.errors.full_messages
+end
 
 users5 = User.new(email: "badbunny@hotmail.com", password:"12345678", password_confirmation:"12345678", username:"BAD_Bunny" ,
 bio:" - Antes de que salga el sol y hunda el acelerador - Singer", location: "Costa, Rica",first_name:"Bad",last_name:"Bunny")
 users5.photo.attach(io: URI.open("https://www.billboard.com/wp-content/uploads/2023/02/Bad-Bunny-2022-billboard-pro-1260.jpg?w=942&h=623&crop=1"), filename: "nes5.png", content_type: "image/png")
 users5.save!
+unless users5.save
+  puts users1.errors.full_messages
+end
 
 
 
